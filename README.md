@@ -93,9 +93,11 @@ bash build-ffmpeg-gpl.sh
 
 ## 许可与源码请求
 
-许可文本见 `LICENSES/` 与各子目录。源码请求联系方式：
+许可文本见 `LICENSES/` 与各子目录。源码获取地址：
 
-    E-mail: chinapeter2008@163.com
+    公开仓库：https://github.com/chinapeter2008/ThermalIQ-1.1.1-source-offer
+    固定版本：https://github.com/chinapeter2008/ThermalIQ-1.1.1-source-offer/releases/tag/v1.1.1
+    E-mail：chinapeter2008@163.com
 
 本源码包自最后一次分发之日起至少三年内有效；请求仅在必要时收取物理介质
 成本，不收取源码费用。
