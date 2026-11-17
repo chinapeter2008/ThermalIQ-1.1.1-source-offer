@@ -165,9 +165,16 @@ are not distributed with this product.
 ====================================================================
 Source Code Requests
 ====================================================================
-Requests for the source code of the LGPL components, or for the complete
-corresponding source used to build the LGPL libraries or the GPL `ffmpeg.exe`,
-may be sent to:
+The complete corresponding source for the LGPL components and the GPL
+`ffmpeg.exe` is available at:
+
+    https://github.com/chinapeter2008/ThermalIQ-1.1.1-source-offer
+
+A fixed version archive is available at:
+
+    https://github.com/chinapeter2008/ThermalIQ-1.1.1-source-offer/releases/tag/v1.1.1
+
+If the repository is unavailable, requests may be sent to:
 
     E-mail: chinapeter2008@163.com
 
