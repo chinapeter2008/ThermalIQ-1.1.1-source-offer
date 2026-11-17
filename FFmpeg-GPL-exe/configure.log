@@ -1,0 +1,109 @@
+install prefix            D:/hwcw/ThermalIQ/_ffbuild/gpl-build/ffmpeg-prefix
+source path               .
+C compiler                gcc
+C library                 mingw64
+ARCH                      x86 (generic)
+big-endian                no
+runtime cpu detection     yes
+standalone assembly       yes
+x86 assembler             nasm
+MMX enabled               yes
+MMXEXT enabled            yes
+3DNow! enabled            yes
+3DNow! extended enabled   yes
+SSE enabled               yes
+SSSE3 enabled             yes
+AESNI enabled             yes
+AVX enabled               yes
+AVX2 enabled              yes
+AVX-512 enabled           yes
+AVX-512ICL enabled        yes
+XOP enabled               yes
+FMA3 enabled              yes
+FMA4 enabled              yes
+i686 features enabled     yes
+CMOV is fast              yes
+EBX available             yes
+EBP available             yes
+debug symbols             no
+strip symbols             yes
+optimize for size         no
+optimizations             yes
+static                    yes
+shared                    no
+postprocessing support    yes
+network support           yes
+threading support         w32threads
+safe bitstream reader     yes
+texi2html enabled         no
+perl enabled              yes
+pod2man enabled           no
+makeinfo enabled          no
+makeinfo supports HTML    no
+xmllint enabled           no
+
+External libraries:
+iconv                   libx264
+
+External libraries providing hardware acceleration:
+d3d11va
+
+Libraries:
+avcodec                 avformat                swresample
+avdevice                avutil                  swscale
+avfilter                postproc
+
+Programs:
+ffmpeg
+
+Enabled decoders:
+h264                    hevc                    mjpeg
+
+Enabled encoders:
+libx264                 mjpeg
+
+Enabled hwaccels:
+h264_d3d11va            hevc_d3d11va
+
+Enabled parsers:
+ac3                     hevc
+h264                    mjpeg
+
+Enabled demuxers:
+asf                     mov                     rtp
+h264                    mpegts                  rtsp
+image2                  rm                      sdp
+
+Enabled muxers:
+mjpeg                   mov                     mp4
+
+Enabled protocols:
+file                    pipe                    tcp
+http                    rtp                     udp
+
+Enabled filters:
+aformat                 format                  scale
+anull                   fps                     setpts
+aresample               hflip                   transpose
+atrim                   null                    trim
+crop                    rotate                  vflip
+
+Enabled bsfs:
+aac_adtstoasc           vp9_superframe
+
+Enabled indevs:
+
+Enabled outdevs:
+
+License: GPL version 3 or later
+libavutil/avconfig.h is unchanged
+libavfilter/filter_list.c is unchanged
+libavcodec/codec_list.c is unchanged
+libavcodec/parser_list.c is unchanged
+libavcodec/bsf_list.c is unchanged
+libavformat/demuxer_list.c is unchanged
+libavformat/muxer_list.c is unchanged
+libavdevice/indev_list.c is unchanged
+libavdevice/outdev_list.c is unchanged
+libavformat/protocol_list.c is unchanged
+ffbuild/config.sh is unchanged

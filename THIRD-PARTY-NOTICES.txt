@@ -1,0 +1,176 @@
+ThermalIQ Infrared Thermal Analysis Workstation
+THIRD-PARTY NOTICES
+Version 1.1.1 — November 2026
+
+This product incorporates the third-party components listed below. Each component
+remains the property of its respective copyright holder and is used only within the
+terms of its license. This file is distributed with the installer and is located in
+the installation directory. Full license texts are provided in the LICENSES
+subdirectory of the same directory.
+
+This product uses LGPL v3 components by dynamic linking. The relevant libraries are
+distributed as separate DLL files, may be replaced by the user with compatible
+builds, have not been modified by the vendor, and are not statically linked into the
+executable. Source code for these components is available from the upstream projects
+at the URLs given below, and the exact build configuration used is documented in
+third_party/ffmpeg-lgpl/README.md, so that an equivalent library can be rebuilt from
+the official sources free of charge. The vendor will provide the corresponding
+source code on request; see "Source Code Requests" at the end of this file.
+
+====================================================================
+1. Qt 6.7.3
+====================================================================
+Purpose:        Application framework (user interface, networking, SQL driver,
+                graphics)
+Distributed:    Qt6Core.dll, Qt6Gui.dll, Qt6Widgets.dll, Qt6Network.dll,
+                Qt6Sql.dll, Qt6Svg.dll, and the plugins under platforms/,
+                sqldrivers/, imageformats/, iconengines/, styles/, tls/,
+                networkinformation/, translations/, generic/
+License:        GNU Lesser General Public License v3 (LGPL-3.0)
+                https://www.gnu.org/licenses/lgpl-3.0.html
+Copyright:      Copyright (C) The Qt Company Ltd. and other contributors
+Notes:          Used by dynamic linking. The Qt libraries remain separate and
+                replaceable; the vendor has not modified the Qt sources. Users may
+                replace them with compatible builds of their own.
+Source:         https://download.qt.io/official_releases/qt/6.7/6.7.3/submodules/
+Commercial:     If you hold a commercial Qt license, those terms take precedence.
+
+====================================================================
+2. FFmpeg — embedded decoding libraries
+====================================================================
+Purpose:        Decoding of thermal camera video streams (RTSP/RTP to YUV),
+                linked dynamically
+Distributed:    avcodec-61.dll, avformat-61.dll, avutil-59.dll,
+                swscale-8.dll, swresample-5.dll
+License:        GNU Lesser General Public License v3 (LGPL-3.0)
+                https://www.gnu.org/licenses/lgpl-3.0.html
+Version:        FFmpeg n7.1.5 (libavcodec 61, libavformat 61, libavutil 59,
+                libswscale 8, libswresample 5), trimmed build
+Build origin:   Compiled by the vendor from the official FFmpeg n7.1.5 sources
+                (mingw-w64 GCC 13.1). The build enables only the h264/hevc/mjpeg
+                decoders, the rtsp/mov/mpegts/h264/image2 demuxers, the
+                file/rtsp/rtp/tcp/udp/http/https protocols, swscale and
+                swresample, and the annexb bitstream filters. It is configured
+                with --enable-version3 and without --enable-gpl,
+                --enable-nonfree or any x264/x265 encoder, and is therefore
+                distributed under LGPL v3.
+Copyright:      Copyright (C) FFmpeg developers
+Source:         https://ffmpeg.org/releases/ffmpeg-7.1.5.tar.xz
+                https://git.ffmpeg.org/ffmpeg.git (tag n7.1.5)
+                Build configuration: third_party/ffmpeg-lgpl/README.md, and
+                _ffbuild/build-trimmed.sh in the source tree supplied with the
+                product on request.
+Notes:          Used by dynamic linking. The libraries remain separate and
+                replaceable; the vendor has not modified the FFmpeg sources.
+
+LGPL v3 "Installation Information" applies to a User Product (a consumer device).
+This product is desktop workstation software and does not fall within that
+definition. Should the product be delivered as an embedded appliance, this section
+must be re-assessed and the corresponding information supplied.
+
+====================================================================
+3. FFmpeg — recording executable (ffmpeg.exe)
+====================================================================
+Purpose:        Recording of video to MP4 (H.264) through a separate process
+Distributed:    ffmpeg.exe (separate program; its code is not linked into this
+                product)
+License:        GNU General Public License v3 (GPL-3.0)
+                https://www.gnu.org/licenses/gpl-3.0.html
+Version:        FFmpeg n7.1.5, static build with libx264 (x264 API build 165,
+                x264 0.165.x, GPL-2.0-or-later)
+Copyright:      Copyright (C) FFmpeg developers
+                Copyright (C) x264 developers
+Build origin:   Compiled by the vendor from the official FFmpeg n7.1.5 sources
+                with mingw-w64 GCC 13.1.0 and NASM 2.16.03. The build enables
+                only what ThermalIQ invokes:
+                --enable-gpl --enable-version3 --enable-libx264
+                --enable-static --disable-shared --disable-everything
+                --enable-ffmpeg --disable-ffprobe --disable-ffplay
+                --enable-demuxer=rtsp,rtp,h264,mov,mpegts,image2,sdp,rdt
+                --enable-decoder=h264,hevc,mjpeg
+                --enable-encoder=libx264,mjpeg
+                --enable-muxer=mp4,mov,mjpeg
+                --enable-parser=h264,hevc,mjpeg
+                --enable-protocol=file,pipe,rtp,tcp,udp,http
+                --enable-d3d11va --enable-hwaccel=h264_d3d11va,hevc_d3d11va
+                --enable-avfilter --enable-swscale --enable-swresample
+                All other codecs, muxers, filters and programs are disabled.
+                The executable contains libx264 only; it does not contain x265
+                or any other GPL library.
+Notes:          This build includes libx264 (GPL-2.0-or-later), so ffmpeg.exe is
+                distributed as a whole under GPL v3. ffmpeg.exe is invoked as an
+                independent program by command line and does not form a
+                derivative work with this product, which is distributed under
+                its own terms. Users may replace ffmpeg.exe with their own build
+                placed in the installation directory, provided the command line
+                remains compatible.
+Source:         https://ffmpeg.org/releases/ffmpeg-7.1.5.tar.xz
+                https://code.videolan.org/videolan/x264 (x264 stable snapshot)
+                Build script and unreduced source trees are supplied with the
+                product on request; see "Source Code Requests" below.
+SHA-256:        569637259D986831D38A9ECAD8E86F90EB836F2026345469113FCC549C66CD88
+
+====================================================================
+4. MinGW-w64 GCC runtime libraries
+====================================================================
+Purpose:        Compiler runtime (C++ standard library, exception handling,
+                threading)
+Distributed:    libstdc++-6.dll, libgcc_s_seh-1.dll, libwinpthread-1.dll
+License:        GPL v3 with the GCC Runtime Library Exception
+                https://www.gnu.org/licenses/gcc-exception-3.1.html
+Copyright:      Copyright (C) Free Software Foundation, Inc.
+Notes:          The runtime exception permits distribution of these runtime
+                libraries with non-GPL programs without licensing this product
+                under the GPL.
+
+====================================================================
+5. Mesa 3D — software OpenGL implementation
+====================================================================
+Purpose:        Software rendering fallback where no hardware OpenGL driver is
+                available
+Distributed:    opengl32sw.dll
+License:        MIT License
+                https://mesa3d.org/license.html
+Copyright:      Copyright (C) 1999-2026 Mesa 3D authors
+
+====================================================================
+6. Microsoft Direct3D Compiler
+====================================================================
+Purpose:        Shader compilation in parts of the Qt graphics stack
+Distributed:    D3Dcompiler_47.dll
+License:        Microsoft redistributable terms (distributed with the Qt runtime);
+                see LICENSES/D3Dcompiler-NOTICE.txt
+Copyright:      Copyright (C) Microsoft Corporation
+Notes:          Redistributed unmodified as part of the Qt runtime; replaceable
+                with the copy supplied by the Microsoft runtime on the target system.
+
+====================================================================
+7. SQLite
+====================================================================
+Purpose:        Local database (devices, alarms, logs) loaded through the Qt SQL
+                driver
+Distributed:    sqldrivers/qsqlite.dll
+License:        Public Domain
+                https://www.sqlite.org/copyright.html
+Notes:          SQLite has been placed in the public domain; no copyright
+                restrictions apply.
+
+====================================================================
+8. Operating system components
+====================================================================
+This product runs on Windows and calls system-provided interfaces such as Win32,
+GDI/Direct3D and winmm. Those components are supplied by the operating system and
+are not distributed with this product.
+
+====================================================================
+Source Code Requests
+====================================================================
+Requests for the source code of the LGPL components, or for the complete
+corresponding source used to build the LGPL libraries or the GPL `ffmpeg.exe`,
+may be sent to:
+
+    E-mail: chinapeter2008@163.com
+
+This offer is valid for at least three (3) years from the date of the last
+distribution of this product. Requests are answered within a reasonable period, at
+no charge beyond the cost of the physical medium used to convey the source.

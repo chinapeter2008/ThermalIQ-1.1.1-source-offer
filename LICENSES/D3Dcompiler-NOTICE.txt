@@ -1,0 +1,23 @@
+Microsoft Direct3D Compiler — redistribution notice
+==================================================
+
+Component:  D3Dcompiler_47.dll
+Copyright:  Copyright (C) Microsoft Corporation
+
+This file is a redistributable component of the Microsoft Windows SDK / DirectX
+redistributable runtime. It is redistributed here unmodified, as part of the Qt
+runtime that ThermalIQ links against, in accordance with the redistribution terms
+that accompany the Microsoft SDK from which it originates.
+
+The redistributable may be used and distributed only as part of, and for the sole
+purpose of, running the application it is shipped with. It may not be
+reverse-engineered, decompiled or disassembled, except to the extent expressly
+permitted by applicable law.
+
+ThermalIQ does not modify this file. Users may replace it with the copy installed
+by the Microsoft runtime or SDK on their own system.
+
+For the authoritative terms, refer to the license documents included with the
+Microsoft Windows SDK used to build the Qt runtime:
+
+  https://learn.microsoft.com/windows/apps/windows-app-sdk/
